@@ -1,24 +1,26 @@
 # Getting Started With Django - Henrique Müller, 2022
 
-### Initializing a project
+### Creating a new Admin User, new application and new database table
 
-First we create a directory for the project
+Create an Admin User
 
 ```sh
-mkdir SON_Django_init
-cd Django_init
+python manage.py createsuperuser
 ```
 
-Then we create a virtual environment for the project python packages and install the Django Framework
+Add a module (or application) to the project
 
 ```sh
-python -m venv venv
-source venv/Scripts/activate
-pip install django
+django-admin startapp app_01
 ```
 
-Finally we initiate the project structure. Be sure the names for the project and directory are the same. 
+Add the new application to _settings.py_ file
+
+Modify the _admin.py_ file to add it to the admin panel
+
+Define new database tables in _models.py_ file and perform the migration procedure
 
 ```sh
-django-admin startproject SON_Django_init
+python manage.py makemigrations app_01
+python manage.py migrate
 ```
