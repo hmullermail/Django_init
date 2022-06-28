@@ -4,6 +4,8 @@
 *.ldf
 *.sqlite3
 
+migrations
+
 *.py[cod]
 
 # Packages

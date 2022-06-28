@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
+          
+    <title>
+      {% if title %}
+        {{ title }}
+      {% else %}
+        Untitled
+      {% endif %}
+    </title>
+        
+    {% block head %}
+    {% endblock %}
+      
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            scroll-behavior: smooth;
+            height: 100%;
+            margin: 0px;
+            padding: 20px;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            background: #82b6ca;
+        }
+
+        h1, h2, h3, h4 {color: #054e05;}
+
+        p {color: #a08e27;}
+
+    </style>
+
+</head>
+
+<body>
+    {% block navbar %}
+        <nav>
+            <a href="{% url 'post_list' %}"> List Posts</a>
+        </nav>
+        Categories
+        <nav>
+            {% for category in categories %}
+                <a href="{% url 'post_list' %}?category_id={{ category.id }}">{{ category.name }}</a>
+            {% endfor %}
+
+        </nav>      
+    {% endblock %}
+    {% block content %}
+    {% endblock %}    
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>
